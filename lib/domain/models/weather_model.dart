@@ -13,7 +13,6 @@ class Weather2 {
   //     mainCondition: json['weather'][0]['main'],
   //   );
   // }
-//TODO
   Weather2.fromJson(Map<String, dynamic> json) {
     city = json['name'];
     temp = json['main']['temp'];
