@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class ErrorView extends StatelessWidget {
   const ErrorView({
-    super.key, required this.message, required this.onTap,
+    super.key,
+    required this.message,
+    required this.onTap,
   });
 
   final String message;
@@ -13,6 +16,13 @@ class ErrorView extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        SizedBox(
+          width: 200,
+          height: 200,
+          child: Lottie.asset(
+            'assets/error.json',
+          ),
+        ),
         Text(message),
         TextButton(
           onPressed: onTap,
