@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:weather/bloc/dark_mode_bloc.dart';
 import 'package:weather/pages/weather_page/weather_page.dart';
+import 'package:weather/theme/theme_utils.dart';
+import 'package:weather/utils/shared_prefernces_util.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   SystemChrome.setSystemUIOverlayStyle(
@@ -18,22 +19,28 @@ void main() {
   );
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 
-  runApp(const MyApp());
+  final isDark = await getDarkMode();
+
+  runApp(MyApp(
+    isDark: isDark,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.isDark});
+
+  final bool isDark;
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => BrightnessBloc(),
+      create: (BuildContext context) => BrightnessBloc(isDark: isDark),
       child: BlocBuilder<BrightnessBloc, Brightness>(
         builder: (BuildContext context, state) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            theme: _buildTheme(state),
+            theme: buildTheme(state),
             home: const WeatherPage(),
           );
         },
@@ -42,16 +49,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-ThemeData _buildTheme(brightness) {
-  // return ThemeData(brightness: brightness, fontFamily: 'SFProText');
 
-  return ThemeData(
-    useMaterial3: true,
-    brightness: brightness,
-    textTheme: GoogleFonts.oswaldTextTheme(),
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: Colors.blue,
-      brightness: brightness,
-    ),
-  );
-}
+
+
+

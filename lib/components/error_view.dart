@@ -23,7 +23,10 @@ class ErrorView extends StatelessWidget {
             'assets/error.json',
           ),
         ),
-        Text(message),
+        Text(
+          message,
+          style: TextStyle(color: Theme.of(context).colorScheme.primary),
+        ),
         TextButton(
           onPressed: onTap,
           style: TextButton.styleFrom(
@@ -33,7 +36,10 @@ class ErrorView extends StatelessWidget {
               ),
             ),
           ),
-          child: const Text('TRY AGAIN'),
+          child: const Text(
+            'TRY AGAIN',
+            style: TextStyle(color: Colors.lightBlue),
+          ),
         ),
       ],
     );

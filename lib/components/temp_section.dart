@@ -20,13 +20,13 @@ class TempSection extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 8.0),
             child: Text(
               '${weather.main.temp.round()}\u02DA',
-              style: const TextStyle(fontSize: 60, color: greyColor2, fontWeight: FontWeight.w600),
+              style: TextStyle(fontSize: 60, color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.w600),
             ),
           ),
           Text(
             weather.weather[0].main,
-            style: const TextStyle(
-                color: greyColor, fontWeight: FontWeight.w400, fontSize: 16),
+            style: TextStyle(
+                color: Theme.of(context).colorScheme.secondary, fontWeight: FontWeight.w400, fontSize: 16),
           ),
         ],
       ),

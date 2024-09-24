@@ -16,18 +16,18 @@ class LocationSection extends StatelessWidget {
       padding: const EdgeInsets.only(top: 0.0),
       child: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.only(bottom: 8.0),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
             child: Icon(
               CupertinoIcons.location_solid,
               size: 20,
-              color: greyColor,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
           Text(
             city.toUpperCase(),
-            style: const TextStyle(
-                color: greyColor2,
+            style: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
                 letterSpacing: 0,
                 fontSize: 18,
                 fontWeight: FontWeight.w500),
