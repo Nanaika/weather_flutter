@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../utils/constants.dart';
 import '../domain/models/weather.dart';
 
 class TempSection extends StatelessWidget {

@@ -9,14 +9,7 @@ import 'package:weather/utils/shared_prefernces_util.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-        statusBarIconBrightness: Brightness.dark,
-        statusBarColor: Colors.transparent,
-        systemNavigationBarColor: Color.fromARGB(1, 1, 1, 1),
-        systemNavigationBarDividerColor: Colors.transparent,
-        systemNavigationBarIconBrightness: Brightness.dark),
-  );
+
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 
   final isDark = await getDarkMode();
@@ -48,6 +41,9 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+
 
 
 
